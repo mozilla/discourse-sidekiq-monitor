@@ -1,0 +1,4 @@
+en:
+  site_settings:
+    newrelic_account_id: "Your newrelic account id"
+    newrelic_insights_key: "The key for the sidekiq monitor job to use"

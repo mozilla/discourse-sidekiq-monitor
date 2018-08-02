@@ -1,0 +1,7 @@
+sidekiq_monitor:
+  newrelic_account_id:
+    default: ''
+    shadowed_by_global: true
+  newrelic_insights_key:
+    default: ''
+    shadowed_by_global: true
