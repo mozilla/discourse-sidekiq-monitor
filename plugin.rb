@@ -22,8 +22,10 @@ after_initialize do
         }]
 
         uri = URI("https://insights-collector.newrelic.com/v1/accounts/#{account_id}/events")
-        req = Net::HTTP::Post.new(uri)
-        req['X-Insert-Key'] = "#{key}"
+
+        req = Net::HTTP::Post.new(uri, "Content-Type": "application/json")
+        req["X-Insert-Key"] = "#{key}"
+        req.body = payload.to_json
 
         res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
           http.request(req)

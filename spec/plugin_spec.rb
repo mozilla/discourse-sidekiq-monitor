@@ -8,11 +8,13 @@ describe Jobs::MozillaSidekiqMonitor do
   end
 
   context "with newrelic account id and key set" do
-    it "uses them" do
+    it "sends payload" do
       stub_request(:post, "https://insights-collector.newrelic.com/v1/accounts/1234/events").with({
         headers: {
+          "Content-Type": "application/json",
           "X-Insert-Key": "5678"
-        }
+        },
+        body: '[{"eventType":"sidekiqRunning","value":1}]'
       }).to_return(status: 200)
 
       described_class.new.execute({})
