@@ -1,4 +1,4 @@
 en:
   site_settings:
-    newrelic_account_id: "Your newrelic account id"
-    newrelic_insights_key: "The key for the sidekiq monitor job to use"
+    sidekiq_monitor_enabled: "enable/disable sidekiq_monitor_ping job (requires a restart to take effect)"
+    sidekiq_monitor_key: "key to set in X-Sidekiq-Monitor-Key header"
