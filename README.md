@@ -14,3 +14,10 @@ Then use that key in the X-Sidekiq-Monitor-Key header, to query `/sidekiq_monito
 ```
 curl -H 'X-Sidekiq-Monitor-Key: 1234' localhost:3000/sidekiq_monitor/status.json
 ```
+
+If the key is invalid, the endpoint will return a 404 status.
+
+If the key is valid, the endpoint will return a 200 status and:
+
+- `running: true`, if sidekiq is running
+- `running: false`, if sidekiq isn't running
